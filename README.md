@@ -1,0 +1,1 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/sehulhn871397s3w?svg=true)](https://ci.appveyor.com/project/Andrey69912/netologybddtask1)
