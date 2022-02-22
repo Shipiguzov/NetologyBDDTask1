@@ -3,6 +3,7 @@ package test;
 import data.Cards;
 import data.DataHelper;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import page.DashboardPage;
 import page.LoginPage;
@@ -19,6 +20,11 @@ public class MoneyTransferTest {
     private int cardIDFromTransfer = 0; //card number starts from 0
     private int cardIDToTransfer = 1; //card number starts from 0
     private ArrayList<DataHelper.CardInfo> cardList;
+
+    @BeforeEach
+    public void resetSUT(){
+        //Check balance of first card and add or transfer money from/to second card
+    }
 
     @Test
     public void shouldTransferBetweenTwoCards(){
