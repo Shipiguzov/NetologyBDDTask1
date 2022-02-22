@@ -6,14 +6,14 @@ import data.DataHelper;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class Login {
+public class LoginPage {
 
     private SelenideElement loginField = $(".input [name='login']");
     private SelenideElement passwordField = $(".input__inner [name='password']");
     private SelenideElement button = $(Selectors.byClassName("button"));
 
     public VerificationPage validLogin(DataHelper.AuthInfo authInfo) {
-        loginField.setValue(authInfo.getPassword());
+        loginField.setValue(authInfo.getLogin());
         passwordField.setValue(authInfo.getPassword());
         button.click();
         return new VerificationPage();

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test.MoneyTransferTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-02-22T20:10:30" hostname="DESKTOP-RJJH38L" time="5.404">
+  <properties/>
+  <testcase name="checkCardBalance()" classname="test.MoneyTransferTest" time="5.404"/>
+  <system-out><![CDATA[[CardInfo{cardNumber='5559 0000 0000 0001', balance=10000}, CardInfo{cardNumber='5559 0000 0000 0002', balance=10000}]
+]]></system-out>
+  <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+Starting ChromeDriver 98.0.4758.102 (273bf7ac8c909cde36982d27f66f3c70846a3718-refs/branch-heads/4758@{#1151}) on port 18242
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+февр. 22, 2022 11:10:32 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+</testsuite>
