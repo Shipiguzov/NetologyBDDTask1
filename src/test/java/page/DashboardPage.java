@@ -17,11 +17,12 @@ public class DashboardPage {
     private ElementsCollection buttonsForTopUp = $$("[data-test-id='action-deposit']");
     private SelenideElement buttonForRefresh = $("[data-test-id=\"action-reload\"]");
     private ElementsCollection cards = $$(".list__item");
+    private SelenideElement checkLoad = $(Selectors.byText("Ваши карты"));
     private final String balanceStart = "баланс: ";
     private final String balanceFinish = " р.";
 
     public DashboardPage(){
-        $(Selectors.byText("Ваши карты")).should(Condition.appear);
+        checkLoad.should(Condition.appear);
     }
 
     /*private void getCardBalance(int[] balance){
@@ -47,8 +48,11 @@ public class DashboardPage {
     }
 
     //TODO
-    /*public void topUpCard(DataHelper.CardInfo cardFromTransfer, DataHelper.CardInfo cardToTransfer, double sum){
+    public void topUpCard(int cardFromTransfer, String cardToTransfer, int sum){
         buttonsForTopUp.get(cardFromTransfer).click();
         TopUpPage moneyTransfer = new TopUpPage();
-    }*/
+        moneyTransfer.topUpCard(Cards.values()[cardFromTransfer].getNumber(), cardToTransfer, sum);
+        checkLoad.shouldBe(Condition.appear);
+
+    }
 }

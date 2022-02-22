@@ -18,6 +18,10 @@ public class TopUpPage {
         this.sum.shouldBe(Condition.visible);
     }
 
-    public void topUpCard(DataHelper.CardInfo cardFrom, DataHelper.CardInfo cardTo, int sum){
+    public void topUpCard(String cardFromTransfer, String cardToTransfer, int sum){
+        this.sum.setValue(String.valueOf(sum));
+        cardFrom.setValue(cardFromTransfer);
+        cardTo.setValue(cardToTransfer);
+        transferButton.click();
     }
 }

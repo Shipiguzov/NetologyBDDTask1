@@ -29,8 +29,9 @@ public class MoneyTransferTest {
         VerificationPage verify = new LoginPage().validLogin(authInfo);
         DashboardPage dashboard = verify.validLogin();
         dashboard.getCardsBalance(cardList);
-        Assertions.assertTrue((cardList.get(cardIDFromTransfer).getBalance() - sumForTransfer) > 0);
-        //dashboard.topUpCard(cardIDFromTransfer, cardIDToTransfer, 1000);
+        Assertions.assertTrue((cardList.get(cardIDFromTransfer).getBalance() - sumForTransfer) > 0,
+                "Not enough money for transfer");
+        dashboard.topUpCard(cardIDFromTransfer, cardList.get(cardIDToTransfer).getCardNumber(), 1000);
     }
 
     @Test
@@ -45,5 +46,19 @@ public class MoneyTransferTest {
         for (int i = 0; i < cardList.size() - 1; i++) {
             Assertions.assertEquals(expectedCardsBalance[i], cardList.get(i).getBalance());
         }
+    }
+
+    @Test
+    public void notEnoughMoney(){
+        cardList = DataHelper.getCards();
+        int sumForTransfer = 100000;
+        open("http://localhost:9999/");
+        DataHelper.AuthInfo authInfo = DataHelper.getAuthInfo();
+        VerificationPage verify = new LoginPage().validLogin(authInfo);
+        DashboardPage dashboard = verify.validLogin();
+        dashboard.getCardsBalance(cardList);
+        Assertions.assertTrue((cardList.get(cardIDFromTransfer).getBalance() - sumForTransfer) > 0,
+                "Not enough money for transfer\n");
+        dashboard.topUpCard(cardIDFromTransfer, cardList.get(cardIDToTransfer).getCardNumber(), 1000);
     }
 }
