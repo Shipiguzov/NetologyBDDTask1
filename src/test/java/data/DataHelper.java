@@ -3,6 +3,7 @@ package data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.Value;
+import org.junit.jupiter.api.Assertions;
 
 import java.util.ArrayList;
 
@@ -68,6 +69,14 @@ public class DataHelper {
             expectedCardsBalance[i] = cardList[i].getBalance();
         }
         return expectedCardsBalance;
+    }
+
+    public static boolean validateCardBalance(ArrayList<DataHelper.CardInfo> cardList){
+        int[] expectedCardsBalance = DataHelper.expectedCardsBalance();
+        for (int i = 0; i < cardList.size() - 1; i++) {
+            if (expectedCardsBalance[i] != cardList.get(i).getBalance()) return false;
+        }
+        return true;
     }
 
 }

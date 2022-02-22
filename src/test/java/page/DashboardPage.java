@@ -47,7 +47,6 @@ public class DashboardPage {
         return cardList;
     }
 
-    //TODO
     public void topUpCard(int cardFromTransfer, String cardToTransfer, int sum){
         buttonsForTopUp.get(cardFromTransfer).click();
         TopUpPage moneyTransfer = new TopUpPage();

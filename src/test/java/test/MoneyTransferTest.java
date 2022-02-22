@@ -48,10 +48,7 @@ public class MoneyTransferTest {
         VerificationPage verify = new LoginPage().validLogin(authInfo);
         DashboardPage dashboard = verify.validLogin();
         dashboard.getCardsBalance(cardList);
-        int[] expectedCardsBalance = DataHelper.expectedCardsBalance();
-        for (int i = 0; i < cardList.size() - 1; i++) {
-            Assertions.assertEquals(expectedCardsBalance[i], cardList.get(i).getBalance());
-        }
+        Assertions.assertTrue(DataHelper.validateCardBalance(cardList));
     }
 
     @Test
