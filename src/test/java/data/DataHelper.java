@@ -79,4 +79,10 @@ public class DataHelper {
         return true;
     }
 
+    public static ArrayList<DataHelper.CardInfo> changeCardListForCompere(ArrayList<DataHelper.CardInfo> cardList,
+                                                                   int cardIDFrom, int cardIDTo, int sum){
+        cardList.get(cardIDFrom).setBalance(cardList.get(cardIDFrom).getBalance() - sum);
+        cardList.get(cardIDTo).setBalance(cardList.get(cardIDTo).getBalance() + sum);
+        return cardList;
+    }
 }
